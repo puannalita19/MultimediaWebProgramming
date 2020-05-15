@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <title>Lab 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#Add").click(function() {
+          var tbody = $('#FruitList');
+          var input_row = $('#InputRow').val();
+          var fruit_name = $('#fruit_name').val();
+
+          if ($('#fruit_name').val() != "") {
+            var tr = $('<tr></tr>');
+            var td1 = $('<td></td>');
+            var td2 = $('<td></td>');
+            var a = $('<a></a>');
+
+            $(tr).attr('id', fruit_name);
+            $(td1).text(fruit_name);
+            $(td2).attr('align', 'center');
+            $(a).attr({href:"#" }).html("Delete");
+
+            $(td2).append(a);
+            $(tr).append(td1);
+            $(tr).append(td2);
+		      	$(tbody).append(tr,InputRow);
+
+          } else {
+            alert("Please enter fruit name!");
+          }
+
+          $('#fruit_name').val("");
+        });
+
+        $('#FruitList').on('click', 'a', function() {
+          $(this).closest('tr').remove();
+        });
+      });
+
+    </script>
+  </head>
+  <body>
+
+
+    <table border="1" width="480" id="FruitList">
+      <tr>
+        <th>Fruit Name</th>
+        <th>Operation</th>
+      </tr>
+      <tr id="Apple">
+        <td>Apple</td>
+        <td align="center">
+          <a href="#">Delete</a>
+        </td>
+      </tr>
+      <tr id="Lemon">
+        <td>Lemon</td>
+        <td align="center">
+          <a href="#">Delete</a>
+        </td>
+      </tr>
+      <tr id="InputRow">
+        <td><input type="text" id="fruit_name"></td>
+        <td align="center"><input id="Add" type="button" value="Add"></td>
+      </tr>
+    </table>
+    <pre>
+    <b>Group Members:</b>
+    1. ADLIN SHAFLINA BINTI AZIZO
+    2. PUAN ALMA NALITA
+    </pre>
+
+  </body>
+</html>
